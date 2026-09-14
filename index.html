@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Peter Mukoma | Full-Stack Software Engineer</title>
+
+    <meta name="description"
+          content="Peter Mukoma is a Full-Stack Software Engineer specializing in Laravel, PHP, JavaScript, MySQL and REST APIs.">
+
+    <meta name="author" content="Peter Mukoma">
+
+    <style>
+        /* =========================
+           GLOBAL
+        ========================== */
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-soft: #111111;
+            --card: #151515;
+            --card-hover: #1b1b1b;
+            --text: #f5f5f5;
+            --muted: #a5a5a5;
+            --border: #292929;
+            --accent: #ffffff;
+            --max-width: 1150px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: auto;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            max-width: 650px;
+            margin-bottom: 50px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        nav {
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #888;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #bdbdbd;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero {
+            max-width: 850px;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: 50px;
+            color: #cfcfcf;
+            font-size: 13px;
+            margin-bottom: 28px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #5ee37a;
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(94,227,122,0.6);
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 90px);
+            line-height: 0.98;
+            letter-spacing: -4px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            color: #777;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: #aaa;
+            max-width: 700px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .btn-primary {
+            background: white;
+            color: black;
+        }
+
+        .btn-primary:hover {
+            background: #dcdcdc;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Decorative grid */
+
+        #home::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            right: -250px;
+            top: 100px;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle, black 20%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        #about {
+            background: var(--bg-soft);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .about-intro {
+            font-size: 24px;
+            line-height: 1.4;
+        }
+
+        .about-text {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .about-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            color: #ccc;
+        }
+
+        .about-list strong {
+            color: white;
+            margin-right: 8px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            background: var(--card-hover);
+            transform: translateY(-4px);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            border: 1px solid var(--border);
+            padding: 5px 9px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        #projects {
+            background: var(--bg-soft);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 14px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: var(--card-hover);
+        }
+
+        .project-number {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .project-card h3 {
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        .project-card .project-type {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 22px;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .project-features li {
+            color: #bbb;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .project-features li::before {
+            content: "→";
+            margin-right: 9px;
+            color: white;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .project-link {
+            border: 1px solid var(--border);
+            padding: 9px 13px;
+            border-radius: 6px;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .project-link:hover {
+            background: white;
+            color: black;
+        }
+
+        /* =========================
+           EXPERIENCE
+        ========================== */
+
+        .experience-item {
+            border-top: 1px solid var(--border);
+            padding: 35px 0;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 50px;
+        }
+
+        .experience-date {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .experience-content h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: #777;
+            margin-bottom: 18px;
+            font-size: 14px;
+        }
+
+        .experience-content p {
+            color: var(--muted);
+            max-width: 750px;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        #education {
+            background: var(--bg-soft);
+        }
+
+        .education-card {
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 12px;
+            background: var(--card);
+        }
+
+        .education-card h3 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .education-card .school {
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .education-card p {
+            color: var(--muted);
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-box {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 15px;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #777;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: #0a0a0a;
+                flex-direction: column;
+                padding: 25px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .about-grid,
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .contact-box {
+                padding: 35px 20px;
+            }
+
+            .contact-box h2 {
+                font-size: 34px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .section-title {
+                font-size: 31px;
+            }
+
+            .project-card,
+            .skill-card {
+                padding: 22px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================== -->
+
+<header>
+    <div class="container">
+        <nav>
+
+            <a href="#home" class="logo">
+                Peter<span>.</span>
+            </a>
+
+            <button class="menu-btn" onclick="toggleMenu()">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section id="home">
+
+    <div class="container">
+
+        <div class="hero">
+
+            <div class="availability">
+                <span class="dot"></span>
+                Open to Remote Opportunities
+            </div>
+
+            <h1>
+                Peter Mukoma
+                <span>Software Engineer.</span>
+            </h1>
+
+            <p class="hero-description">
+                I build practical web applications and backend systems
+                using Laravel, PHP, JavaScript and MySQL.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View My Work
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================== -->
+
+<section id="about">
+
+    <div class="container">
+
+        <h2 class="section-title">About Me</h2>
+
+        <p class="section-subtitle">
+            Software developer focused on turning real-world problems
+            into useful digital products.
+        </p>
+
+        <div class="about-grid">
+
+            <div>
+                <p class="about-intro">
+                    I am a Computer Science graduate and independent
+                    software developer who enjoys building things from
+                    the ground up.
+                </p>
+            </div>
+
+            <div>
+
+                <p class="about-text">
+                    My development experience comes from building
+                    complete projects rather than only following
+                    tutorials. I enjoy working across the backend,
+                    database and frontend layers of an application.
+                </p>
+
+                <p class="about-text">
+                    I am particularly interested in web applications,
+                    APIs, software products and systems that solve
+                    practical problems.
+                </p>
+
+                <p class="about-text">
+                    I am currently looking for remote opportunities
+                    where I can contribute to a development team,
+                    continue growing as an engineer and build software
+                    used by real people.
+                </p>
+
+                <ul class="about-list">
+
+                    <li>
+                        <strong>Location:</strong>
+                        Lusaka, Zambia
+                    </li>
+
+                    <li>
+                        <strong>Work:</strong>
+                        Remote
+                    </li>
+
+                    <li>
+                        <strong>Focus:</strong>
+                        Full-Stack & Backend Development
+                    </li>
+
+                    <li>
+                        <strong>Degree:</strong>
+                        Bachelor of Computer Science
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================== -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <h2 class="section-title">Technical Skills</h2>
+
+        <p class="section-subtitle">
+            Technologies and development areas I work with.
+        </p>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <h3>Backend Development</h3>
+
+                <p>
+                    Building server-side applications, APIs,
+                    authentication systems and business logic.
+                </p>
+
+                <div class="skill-tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">Laravel</span>
+                    <span class="tag">REST APIs</span>
+                    <span class="tag">Sanctum</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Frontend Development</h3>
+
+                <p>
+                    Creating responsive interfaces and connecting
+                    frontend applications with backend systems.
+                </p>
+
+                <div class="skill-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Bootstrap</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Database & Tools</h3>
+
+                <p>
+                    Designing database-driven applications and using
+                    modern development tools and workflows.
+                </p>
+
+                <div class="skill-tags">
+                    <span class="tag">MySQL</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">GitHub</span>
+                    <span class="tag">VS Code</span>
+                    <span class="tag">Postman</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECTS
+========================== -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <h2 class="section-title">Featured Projects</h2>
+
+        <p class="section-subtitle">
+            A selection of software products and systems I have
+            designed and developed.
+        </p>
+
+
+        <div class="projects-grid">
+
+
+            <!-- CERTVERIFY -->
+
+            <article class="project-card">
+
+                <div class="project-number">
+                    PROJECT 01
+                </div>
+
+                <h3>CertVerify</h3>
+
+                <div class="project-type">
+                    Academic Certificate Verification Platform
+                </div>
+
+                <p>
+                    A certificate validation platform designed to help
+                    institutions issue verifiable academic credentials
+                    and allow employers to validate certificates.
+                </p>
+
+                <ul class="project-features">
+
+                    <li>
+                        SHA-256 certificate hashing
+                    </li>
+
+                    <li>
+                        Role-based access control
+                    </li>
+
+                    <li>
+                        Certificate generation and verification
+                    </li>
+
+                    <li>
+                        Institution management
+                    </li>
+
+                    <li>
+                        PDF certificate generation
+                    </li>
+
+                </ul>
+
+                <div class="skill-tags">
+
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Bootstrap</span>
+                    <span class="tag">SHA-256</span>
+
+                </div>
+
+                <div class="project-links">
+
+                    <!-- REPLACE WITH YOUR REAL GITHUB LINK -->
+
+                    <a
+                        href="https://github.com/YOURUSERNAME/certverify"
+                        target="_blank"
+                        class="project-link">
+                        GitHub →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- MONESSA -->
+
+            <article class="project-card">
+
+                <div class="project-number">
+                    PROJECT 02
+                </div>
+
+                <h3>Monessa</h3>
+
+                <div class="project-type">
+                    E-Commerce Marketplace Platform
+                </div>
+
+                <p>
+                    A marketplace platform designed to connect buyers,
+                    sellers and independent delivery providers through
+                    a unified digital marketplace.
+                </p>
+
+                <ul class="project-features">
+
+                    <li>
+                        Multi-role marketplace architecture
+                    </li>
+
+                    <li>
+                        Seller onboarding workflows
+                    </li>
+
+                    <li>
+                        REST API backend
+                    </li>
+
+                    <li>
+                        Authentication using Laravel Sanctum
+                    </li>
+
+                    <li>
+                        Order, payment and delivery architecture
+                    </li>
+
+                </ul>
+
+                <div class="skill-tags">
+
+                    <span class="tag">Laravel</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">Sanctum</span>
+                    <span class="tag">REST API</span>
+
+                </div>
+
+                <div class="project-links">
+
+                    <!-- REPLACE WITH YOUR REAL GITHUB LINK -->
+
+                    <a
+                        href="https://github.com/YOURUSERNAME/monessa"
+                        target="_blank"
+                        class="project-link">
+                        GitHub →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EXPERIENCE
+========================== -->
+
+<section id="experience">
+
+    <div class="container">
+
+        <h2 class="section-title">Experience</h2>
+
+        <p class="section-subtitle">
+            Building software independently while continuously
+            developing my engineering skills.
+        </p>
+
+
+        <div class="experience-item">
+
+            <div class="experience-date">
+                2024 — Present
+            </div>
+
+            <div class="experience-content">
+
+                <h3>Independent Software Developer</h3>
+
+                <div class="experience-company">
+                    Independent / Remote
+                </div>
+
+                <p>
+                    Design and develop web applications from concept
+                    to implementation. Build backend systems using
+                    Laravel and PHP, design MySQL databases, develop
+                    REST APIs and implement authentication and
+                    role-based access control. Work independently
+                    through requirements, architecture, development,
+                    debugging and iteration.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <div class="experience-date">
+                2022 — 2026
+            </div>
+
+            <div class="experience-content">
+
+                <h3>Computer Science Student & Project Developer</h3>
+
+                <div class="experience-company">
+                    Cavendish University Zambia
+                </div>
+
+                <p>
+                    Developed software projects as part of academic
+                    study, including the CertVerify certificate
+                    validation platform. Applied programming,
+                    database design, software engineering and
+                    problem-solving skills to practical systems.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EDUCATION
+========================== -->
+
+<section id="education">
+
+    <div class="container">
+
+        <h2 class="section-title">Education</h2>
+
+        <p class="section-subtitle">
+            Academic foundation in computing and software development.
+        </p>
+
+
+        <div class="education-card">
+
+            <h3>Bachelor of Computer Science</h3>
+
+            <div class="school">
+                Cavendish University Zambia · 2022 — 2026
+            </div>
+
+            <p>
+                Focused on software development, programming,
+                databases, web technologies, systems analysis and
+                computer science fundamentals.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Final-Year Project:</strong>
+                CertVerify — Blockchain-Inspired Academic Certificate
+                Validation System
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================== -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <h2>Let's build something.</h2>
+
+            <p>
+                I am open to remote software engineering,
+                full-stack development, backend development and
+                product engineering opportunities.
+            </p>
+
+            <div class="contact-links">
+
+                <!-- REPLACE EMAIL -->
+
+                <a
+                    href="mailto:YOUR_EMAIL@example.com"
+                    class="btn btn-primary">
+                    Email Me
+                </a>
+
+                <!-- REPLACE LINKEDIN -->
+
+                <a
+                    href="https://www.linkedin.com/in/YOURUSERNAME/"
+                    target="_blank"
+                    class="btn btn-secondary">
+                    LinkedIn
+                </a>
+
+                <!-- REPLACE GITHUB -->
+
+                <a
+                    href="https://github.com/YOURUSERNAME"
+                    target="_blank"
+                    class="btn btn-secondary">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div>
+                © <span id="year"></span> Peter Mukoma
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#home">Home</a>
+
+                <!-- REPLACE -->
+
+                <a
+                    href="https://github.com/YOURUSERNAME"
+                    target="_blank">
+                    GitHub
+                </a>
+
+                <!-- REPLACE -->
+
+                <a
+                    href="https://www.linkedin.com/in/YOURUSERNAME/"
+                    target="_blank">
+                    LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script>
+
+    /* Mobile navigation */
+
+    function toggleMenu() {
+
+        const nav = document.getElementById("navLinks");
+
+        nav.classList.toggle("active");
+
+    }
+
+
+    /* Close mobile menu after clicking a link */
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            document
+                .getElementById("navLinks")
+                .classList.remove("active");
+
+        });
+
+    });
+
+
+    /* Automatically update copyright year */
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
